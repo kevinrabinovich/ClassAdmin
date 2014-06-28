@@ -1,0 +1,101 @@
+-- MySQL dump 10.13  Distrib 5.5.23, for Win32 (x86)
+-- Use username 'root' and password 'MyNewPass'
+-- Host: localhost    Database: students
+-- ------------------------------------------------------
+-- Server version	5.5.23
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `class`
+--
+
+DROP TABLE IF EXISTS `class`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `class` (
+  `idClass` int(11) NOT NULL AUTO_INCREMENT,
+  `Description` varchar(30) DEFAULT NULL,
+  `Professor` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`idClass`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `class`
+--
+
+LOCK TABLES `class` WRITE;
+/*!40000 ALTER TABLE `class` DISABLE KEYS */;
+INSERT INTO `class` VALUES (1,'Geometry','Roberts'),(2,'English','Phil'),(3,'Biology','Adams'),(4,'Journalism','Anderson'),(5,'Physics','Einstein'),(6,'Chemistry','Edwards'),(7,'PE','Bob');
+/*!40000 ALTER TABLE `class` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userclass`
+--
+
+DROP TABLE IF EXISTS `userclass`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userclass` (
+  `idUser` int(11) DEFAULT NULL,
+  `idClass` int(11) DEFAULT NULL,
+  `idUserClass` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idUserClass`)
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userclass`
+--
+
+LOCK TABLES `userclass` WRITE;
+/*!40000 ALTER TABLE `userclass` DISABLE KEYS */;
+INSERT INTO `userclass` VALUES (1,3,51),(1,4,52),(3,3,55),(1,5,58),(3,1,60),(3,5,61),(3,6,62),(1,1,66),(2,4,69),(2,1,75),(2,3,77),(3,2,78),(1,2,79),(4,3,82),(4,1,83),(1,6,84),(3,4,85);
+/*!40000 ALTER TABLE `userclass` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `idUsers` int(11) NOT NULL AUTO_INCREMENT,
+  `UserID` varchar(30) DEFAULT NULL,
+  `Password` varchar(30) DEFAULT NULL,
+  `isAdmin` tinyint(4) DEFAULT '0',
+  PRIMARY KEY (`idUsers`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Jack','12345',1),(2,'Jill','asdf',1),(3,'John','234',0),(4,'Joe','123',0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
